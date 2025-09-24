@@ -1,19 +1,16 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3) + 1;
-    let move = "";
+    let computerChoice = "";
     if (num == 1) {
-        move = "rock";
+        computerChoice = "rock";
     }
     else if (num == 2) {
-        move = "paper";
+        computerChoice = "paper";
     }
     else if (num == 3) {
-        move = "scissors";
+        computerChoice = "scissors";
     }
-    return move;
+    return computerChoice;
 }
 
 function getHumanChoice() {
@@ -54,10 +51,33 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let computer = getComputerChoice()
-let player = getHumanChoice()
 
-console.log(`The computer threw out: ${computer}`);
-console.log(`You threw out: ${player}`);
+// function throwMoves() {
+//     let computer = getComputerChoice();
+//     let player = getHumanChoice();
 
-playRound(player, computer);
+//     console.log(`The computer threw out: ${computer}`);
+//     console.log(`You threw out: ${player}`);
+
+//     return player, computer;
+// }
+
+
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        let computer = getComputerChoice();
+        let player = getHumanChoice();
+        console.log(`The computer threw out: ${computer}`);
+        console.log(`You threw out: ${player}`);
+
+        playRound(player, computer);
+    }
+    
+}
+
+playGame();
